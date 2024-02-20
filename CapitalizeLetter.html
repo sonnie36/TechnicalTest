@@ -1,0 +1,32 @@
+<!--Write a program that accepts a string as input, capitalizes the first letter of each word in the
+string, and then returns the result string.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="input"> Enter a sentence:</label>
+    <input type="text" id="input">
+    <button id="btn" onclick="userInput()">Change</button>
+    <p id="resultP"></p>
+    <script>
+
+        function userInput (){
+            const input = document.getElementById("input").value;
+            const string = input.split(" ");
+            const capitalWords = [];
+            for(let i=0;i<string.length;i++){
+                capitalWords.push(string[i][0].toUpperCase() + string[i].substring(1));
+            }; 
+            const result =capitalWords.join(" ");
+            const results = document.getElementById("resultP");
+            results.textContent = result;
+
+        }
+
+    </script>
+</body>
+</html>

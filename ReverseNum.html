@@ -1,0 +1,44 @@
+<!-- Write a program that takes an integer as input and returns an integer with reversed digit
+ordering.
+Examples:
+
+For input 500, the program should return 5.
+For input -56, the program should return -65.
+For input -90, the program should return -9.
+For input 91, the program should return 19. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Numbers</title>
+</head>
+<body>
+    <label for="entry">Enter an Integer</label>
+    <input type="number" id="entry">
+    <button id="btn" onclick="reversedInteger()">Check Reverse</button>
+    <p id="result"></p>
+    <script>
+        
+        function reversedInteger(){
+            let num = parseInt(document.getElementById("entry").value); 
+            let resultSet = document.getElementById("result");
+            if(num>=0 && num <=9){
+                resultSet.textContent=num;
+                return;
+            };
+            let isNegative = num<0;
+            if(isNegative){
+                num *=-1;
+            }   
+                let reverseNum=0;
+                while(num !== 0){
+                    reverseNum = reverseNum * 10 + (num%10);
+                    num=Math.floor(num/10);
+                } 
+                resultSet.textContent = isNegative?-reverseNum: reverseNum;
+            }
+    </script>
+</body>
+</html>
